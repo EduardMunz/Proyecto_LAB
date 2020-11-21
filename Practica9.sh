@@ -1,11 +1,10 @@
 #!/bin/bash
-
-def py { python3 -c "$1" ; }
 Correo=$1
+function py { python3 -c "$1" ; }
+
 
 for i in $(cat $Correo)
 do 
-    echo "dirección $i"
     py "
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -42,6 +41,6 @@ server.sendmail(msg['From'], msg['To'], msg.as_string())
 
 server.quit()
 
-print("successfully sent email to %s:" % (msg['To']))
+print('successfully sent email to %s:' % (msg['To']))
     "
 done 
