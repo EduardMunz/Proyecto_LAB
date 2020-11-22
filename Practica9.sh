@@ -1,6 +1,6 @@
 #!/bin/bash
 Correo=$1
-function py { python3 -c "$1" ; }
+function py { python3 -c "$1"; }
 
 
 for i in $(cat $Correo)
